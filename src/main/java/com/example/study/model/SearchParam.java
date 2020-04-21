@@ -8,6 +8,20 @@ public class SearchParam {
 
     // { "account" : "", "email" : "", "page" : 0 }   json 형태로 바꿔준다. 기본적으로 jackson 라이브러리가 내장되어 있음.
 
+
+    public SearchParam() {
+    }
+
+    public SearchParam(String account) {
+        this.account = account;
+    }
+
+    public SearchParam(String account, String email, int page) {
+        this.account = account;
+        this.email = email;
+        this.page = page;
+    }
+
     public String getAccount() {
         return account;
     }
