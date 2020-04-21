@@ -6,6 +6,8 @@ public class SearchParam {
     private String email;
     private int page;
 
+    // { "account" : "", "email" : "", "page" : 0 }   json 형태로 바꿔준다.
+
     public String getAccount() {
         return account;
     }
