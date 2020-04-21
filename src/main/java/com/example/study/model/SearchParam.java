@@ -6,7 +6,7 @@ public class SearchParam {
     private String email;
     private int page;
 
-    // { "account" : "", "email" : "", "page" : 0 }   json 형태로 바꿔준다.
+    // { "account" : "", "email" : "", "page" : 0 }   json 형태로 바꿔준다. 기본적으로 jackson 라이브러리가 내장되어 있음.
 
     public String getAccount() {
         return account;
