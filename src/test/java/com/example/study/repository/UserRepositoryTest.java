@@ -54,18 +54,15 @@ public class UserRepositoryTest extends StudyApplicationTests {
 
     @Test
     public void delete() {
-        Optional<User> user = userRepository.findById(2L);
+        Optional<User> user = userRepository.findById(1L);
+        //Assert.assertTrue(user.isPresent());    // true
 
         user.ifPresent(selectUser -> {
             userRepository.delete(selectUser);
         });
 
-        Optional<User> deleteUser = userRepository.findById(2L);
-        if(deleteUser.isPresent()) {
-            System.out.println("데이터 존재함: " +deleteUser.get());
-        } else {
-            System.out.println("데이터 삭제됨, 데이터 없음");
-        }
+        Optional<User> deleteUser = userRepository.findById(1L);
+        //Assert.assertFalse(deleteUser.isPresent());     // false
     }
 }
 
