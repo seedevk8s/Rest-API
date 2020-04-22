@@ -4,8 +4,6 @@ import com.example.study.StudyApplicationTests;
 import com.example.study.model.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -54,8 +52,29 @@ public class UserRepositoryTest extends StudyApplicationTests {
         });
     }
 
-    @DeleteMapping("/api/user")
-    public void delete(@RequestParam Long id) {
+    @Test
+    public void delete() {
+        Optional<User> user = userRepository.findById(2L);
 
+        user.ifPresent(selectUser -> {
+            userRepository.delete(selectUser);
+        });
+
+        Optional<User> deleteUser = userRepository.findById(2L);
+        if(deleteUser.isPresent()) {
+            System.out.println("데이터 존재함: " +deleteUser.get());
+        } else {
+            System.out.println("데이터 삭제됨, 데이터 없음");
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
