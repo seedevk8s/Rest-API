@@ -4,6 +4,7 @@ import com.example.study.StudyApplicationTests;
 import com.example.study.model.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -30,13 +31,15 @@ public class UserRepositoryTest extends StudyApplicationTests {
     }
 
     @Test
-    public void read() {
-        Optional<User> user = userRepository.findById(2L);
+    public User read(@RequestParam Long id) {
+        Optional<User> user = userRepository.findById(id);
 
         user.ifPresent(selectUser -> {
             System.out.println("selectUser " + selectUser);
             System.out.println("email : " + selectUser.getEmail());
         });
+
+        return user.get();
     }
 
     public void update() {
