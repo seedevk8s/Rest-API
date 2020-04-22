@@ -5,6 +5,8 @@ import com.example.study.model.entity.Item;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Optional;
+
 public class ItemRepositoryTest extends StudyApplicationTests {
 
     @Autowired
@@ -25,5 +27,25 @@ public class ItemRepositoryTest extends StudyApplicationTests {
     @Test
     public void read() {
 
+        Long id = 1L;
+
+        Optional<Item> item = itemRepository.findById(id);
+        item.ifPresent(newItem -> {
+            System.out.println(newItem);
+        });
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
