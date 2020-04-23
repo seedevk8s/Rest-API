@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
@@ -22,7 +19,9 @@ public class OrderDetail {
 
     private LocalDateTime orderAt;
 
-    private Long userId;
+    // N : 1
+    @ManyToOne
+    private User user;      // 하이버네이트에서 알아서 user_id를 찾아감
 
     private Long itemId;
 
