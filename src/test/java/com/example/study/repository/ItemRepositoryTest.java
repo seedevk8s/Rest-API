@@ -30,9 +30,9 @@ public class ItemRepositoryTest extends StudyApplicationTests {
         Long id = 1L;
 
         Optional<Item> item = itemRepository.findById(id);
-        item.ifPresent(newItem -> {
+/*        item.ifPresent(newItem -> {
             System.out.println(newItem);
-        });
+        });*/
     }
 }
 
