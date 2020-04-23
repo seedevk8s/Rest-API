@@ -23,6 +23,8 @@ public class OrderDetail {
     @ManyToOne
     private User user;      // 하이버네이트에서 알아서 user_id를 찾아감
 
-    private Long itemId;
+    // N : 1
+    @ManyToOne
+    private Item item;
 
 }
