@@ -3,30 +3,40 @@ package com.example.study.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity     //자동적으로 order_detail 테이블에 연결됨
-@ToString(exclude = {"user","item"})    //ToString 함수에서 user와 item 변수를 제외시키겠다.--상호참조하고 있는것은 연관관계가 있으므로 제외해줘야함.
 public class OrderDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String status;
+
     private LocalDateTime orderAt;
 
-    // N : 1
-    @ManyToOne
-    private User user;      // 하이버네이트에서 알아서 user_id를 찾아감
+    private LocalDateTime arrivalDate;
 
-    // N : 1
-    @ManyToOne
-    private Item item;
+    private Integer quantity;
+
+    private BigDecimal totalPrice;
+
+    private LocalDateTime createdAt;
+
+    private String createdBy;
+
+    private LocalDateTime updatedAt;
+
+    private String updatedBy;
 
 }

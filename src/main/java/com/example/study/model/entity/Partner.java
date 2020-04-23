@@ -10,27 +10,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Entity     // == table
-//@Table(name = "user")
-public class User {
+@AllArgsConstructor
+@Data
+@Entity
+public class Partner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@Column(name = "account")
-    private String account;
-
-    private String password;
+    private String name;
 
     private String status;
 
-    private String email;
+    private String address;
 
-    private String phoneNumber;
+    private String callCenter;
+
+    private String partnerNumber;
+
+    private String businessNumber;
+
+    private String ceoName;
 
     private LocalDateTime registeredAt;
 
@@ -45,21 +47,3 @@ public class User {
     private String updatedBy;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
